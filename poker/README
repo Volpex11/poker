@@ -26,15 +26,19 @@ ncurses - needs stuff
 	-menus.h
 		-text file templates
 			-table
-		-options menu during game
-			-view hand					
+		-view panels
+			-view table
+			-view hand and current call value / anty value					
 			-view river
-			-viewcurrent call value / anty value	
-			-save player stats
+			
+		-options menu during game
 			-raise
 			-call
 			-fold
-
+			-save player stats //saves player money
+			-save/exit //saves table state
+			-exit
+		
 		-title screen menu
 			-player profile
 				-new player
@@ -47,9 +51,9 @@ ncurses - needs stuff
 					-enter name and password
 						-pick what to edit
 							-name, password, catch phrases
-
-			-pick room type ie. high roller, etc.
-				-join table
-				-load table
-					-enter name, and password
+			-play
+				-pick room type //ie. high roller, etc.
+					-join table //joins a table
+					-load table //joins a table with player stats save
+						-enter name, and password
 			
