@@ -1,0 +1,55 @@
+player - needs things?
+		-bitcoin?
+		-name
+		-password
+		-password hint
+		-positive catch phrase
+		-negative catch phrase
+
+cards - needs thing?
+		-name and suit
+
+table - needs stuff
+		-pot
+		-river
+			-individual card hierachy
+			-card set hierachy
+		-number of players
+		-player names
+		-shows big and small blinds
+		-current anty value
+		-folding
+		-adding/removing players/ waitlist?
+		-show players money
+
+ncurses - needs stuff
+	-menus.h
+		-text file templates
+			-table
+		-options menu during game
+			-view hand					
+			-view river
+			-viewcurrent call value / anty value	
+			-save player stats
+			-raise
+			-call
+			-fold
+
+		-title screen menu
+			-player profile
+				-new player
+					-enter name
+					-enter password
+					-enter password hint
+					-enter positive catch phrase
+					-enter negative catch phrase
+				-edit profile
+					-enter name and password
+						-pick what to edit
+							-name, password, catch phrases
+
+			-pick room type ie. high roller, etc.
+				-join table
+				-load table
+					-enter name, and password
+			
