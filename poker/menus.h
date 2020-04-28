@@ -39,6 +39,11 @@ typedef struct _PANEL_DATA {
 	PANEL *next;
 }PANEL_DATA;
 
+typedef struct _FIELD_DATA {
+	vector<char*> user_data;	
+	FIELD *fields[n];
+}FIELD_DATA;
+
 const char *title_choices[5] = { 
 	"Play",
 	"Load Player Save",
@@ -364,8 +369,8 @@ void new_player() {
 	while((ch = wgetch(my_form_win)) != KEY_F(1)) {	
 		switch(ch) {
 			case KEY_HOME:
-				fputs(field[0], O);
-				fclose(O);
+				//fputs(field[0]* char*, O);
+				//fclose(O);
 				clear();
 				titlescreen(scrnH, scrnW);
 				break;
@@ -423,6 +428,7 @@ void titlescreen(int scrnH, int scrnW) {
 	ITEM **my_items;
 	MENU *my_menu;
 	WINDOW *my_menu_win;
+	WINDOW *banner_win;
 	int i;
 
 	keypad(stdscr, TRUE);
@@ -439,6 +445,7 @@ void titlescreen(int scrnH, int scrnW) {
 
 	//Create the window to be associated with the menu
 	my_menu_win = newwin(10, 22, 2, 2);
+	banner_win = newwin(15, 40, 2, 26);
 	keypad(my_menu_win, TRUE);
 
 	//Set main window and sub window
@@ -451,6 +458,7 @@ void titlescreen(int scrnH, int scrnW) {
 
 	//Print a border around the main window and print a title
 	win_border(my_menu_win);
+	win_border(banner_win);
 	print_in_middle(my_menu_win, 1, 0, 22, "Main Menu", COLOR_PAIR(1));
 	mvwaddch(my_menu_win, 2, 0, '+');
 	mvwhline(my_menu_win, 2, 1, '-', 20);
@@ -577,6 +585,22 @@ void print_mainmenu(WINDOW *menu_win, int highlight, int starty, int startx)
 	wrefresh(menu_win);
 }
 
+//Set the FIELD_DATA structures for individual panels
+void set_user_ptrs_panels(FIELD **fields, int n, char ch)
+{	FIELD_DATA *ptrs;
+	WINDOW *win;
+
+	ptrs = (FIELD_DATA *)(//struct stuff);
+
+	for(i = 0;i < n; ++i)
+	{	win = field_window(fields[i]);
+		if(i + 1 == n)
+			ptrs[i].next = NULL;
+		else
+			ptrs[i].next = fields[i + 1];
+		set_field_userptr(fields[i], &ptrs[i]);
+	}
+}
 //Set the PANEL_DATA structures for individual panels
 void set_user_ptrs_panels(PANEL **panels, int n)
 {	PANEL_DATA *ptrs;
