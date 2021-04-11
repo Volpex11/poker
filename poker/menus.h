@@ -40,8 +40,8 @@ typedef struct _PANEL_DATA {
 }PANEL_DATA;
 
 typedef struct _FIELD_DATA {
-	vector<char*> user_data;	
-	FIELD *fields[n];
+	char* user_data;	
+	FIELD *next;
 }FIELD_DATA;
 
 const char *title_choices[5] = { 
@@ -586,13 +586,13 @@ void print_mainmenu(WINDOW *menu_win, int highlight, int starty, int startx)
 }
 
 //Set the FIELD_DATA structures for individual panels
-void set_user_ptrs_panels(FIELD **fields, int n, char ch)
+/*void set_user_ptrs_panels(FIELD **fields, int n, char ch)
 {	FIELD_DATA *ptrs;
 	WINDOW *win;
 
-	ptrs = (FIELD_DATA *)(//struct stuff);
+	ptrs = (FIELD_DATA *); //struct stuff
 
-	for(i = 0;i < n; ++i)
+	for(int i = 0; i < n; ++i)
 	{	win = field_window(fields[i]);
 		if(i + 1 == n)
 			ptrs[i].next = NULL;
@@ -600,7 +600,7 @@ void set_user_ptrs_panels(FIELD **fields, int n, char ch)
 			ptrs[i].next = fields[i + 1];
 		set_field_userptr(fields[i], &ptrs[i]);
 	}
-}
+}*/
 //Set the PANEL_DATA structures for individual panels
 void set_user_ptrs_panels(PANEL **panels, int n)
 {	PANEL_DATA *ptrs;
